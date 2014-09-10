@@ -11,7 +11,7 @@
 .invoice--label {
   position: absolute;
   top: 65.61mm;
-  left: 1mm;
+  left: 0.5mm;
   width: 33.86mm;
   font-size: 8pt;
   text-align: center;
@@ -44,15 +44,9 @@
   height: 16.93mm;
   border-bottom: 2px solid #000000;
   border-right: 2px solid #000000;
-  font-size: 7pt;
-  padding-right: 1mm;
+  padding: 1mm 1mm 0 0;
   text-align: right;
-  line-height: 16.93mm;
-}
-.recipient-bank--label span {
-  display: inline-block;
-  vertical-align: middle;
-  line-height: normal;
+  font-size: 7pt;
 }
 .recipient-bank--iban {
   position: absolute;
@@ -149,8 +143,7 @@
   top: 31.75mm;
   left: 0;
   width: 20mm;
-  padding-top: 1mm;
-  padding-left: 4mm;
+  padding: 1mm 1mm 0 4mm;
   font-size: 7pt;
   padding-right: 1mm;
   text-align: right;
@@ -167,14 +160,14 @@
   left: 20mm;
   width: 90.4mm;
   padding-left: 1mm;
-  border-top: 2px solid #808080;
+  border-top: 1px solid #808080;
 }
 .payer--signature--label {
   position: absolute;
   top: 58.78mm;
   left: 0;
   width: 20mm;
-  padding-left: 3mm;
+  padding-left: 4mm;
   font-size: 7pt;
   padding-right: 1mm;
   text-align: right;
@@ -203,8 +196,7 @@
   top: 65.61mm;
   left: 0;
   width: 20mm;
-  padding-top: 1mm;
-  padding-left: 4mm;
+  padding: 1mm 1mm 0 4mm;
   border-top: 2px solid #000000;
   border-bottom: 2px solid #000000;
   border-right: 1px solid #000000;

@@ -66,7 +66,7 @@
 .invoice--label {
   position: absolute;
   top: @row1 + @row2 + @row3 + @row4;
-  left: 1mm;
+  left: 0.5mm;
   width: @row3 + @row4;
   font-size: @font-size-label;
   text-align: center;
@@ -105,8 +105,9 @@
     height: @row1;
     border-bottom: @border-thick;
     border-right: @border-thick;
-
-    .left-label(@row1);
+    padding: @padding @padding 0 0;
+    text-align: right;
+    font-size: @font-size-help;
   }
   &--iban {
     position: absolute;
@@ -193,8 +194,7 @@
       top: @row1 + @row2;
       left: 0;
       width: @small-column;
-      padding-top: @padding;
-      padding-left: 4mm;
+      padding: @padding @padding 0 4mm;
 
       .left-label(normal);
     }
@@ -214,7 +214,8 @@
       top: @row1 + @row2 + @row3 - 2.6mm;
       left: 0;
       width: @small-column;
-      padding-left: 3mm;
+      padding-left: 4mm;
+      padding-right: @padding;
 
       .left-label(normal);
     }
@@ -223,7 +224,7 @@
     left: @small-column;
     width: @large-column - @padding;
     padding-left: @padding;
-    border-top: @line-thick solid gray;
+    border-top: @line-thin solid gray;
   }
   &--from-account {
     &--label {
@@ -231,8 +232,7 @@
       top: @row1 + @row2 + @row3 + @row4;
       left: 0;
       width: @small-column;
-      padding-top: @padding;
-      padding-left: 4mm;
+      padding: @padding @padding 0 4mm;
       border-top: @border-thick;
       border-bottom: @border-thick;
       border-right: @border-thin;
