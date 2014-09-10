@@ -1,0 +1,290 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Arial', 'Helvetica', 'sans-serif';
+}
+.invoice {
+  position: relative;
+  width: 202.8mm;
+  height: 101.6mm;
+  border-top: 1px dashed #000000;
+}
+.invoice--label {
+  position: absolute;
+  top: 65.61mm;
+  left: 1mm;
+  width: 33.86mm;
+  font-size: 8pt;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  -webkit-transform-origin: left top 0;
+  -moz-transform-origin: left top 0;
+  -ms-transform-origin: left top 0;
+  -o-transform-origin: left top 0;
+  transform-origin: left top 0;
+}
+.invoice--terms {
+  position: absolute;
+  top: 74.08mm;
+  left: 145mm;
+  font-size: 6pt;
+  width: 54mm;
+  padding-top: 3mm;
+}
+.recipient-bank--label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20mm;
+  height: 16.93mm;
+  border-bottom: 2px solid #000000;
+  border-right: 2px solid #000000;
+  font-size: 7pt;
+  padding-right: 1mm;
+  text-align: right;
+  line-height: 16.93mm;
+}
+.recipient-bank--label span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+.recipient-bank--iban {
+  position: absolute;
+  top: 0;
+  left: 20mm;
+  width: 91.4mm;
+  height: 16.93mm;
+  border-bottom: 2px solid #000000;
+  border-right: 2px solid #000000;
+}
+.recipient-bank--iban--label {
+  position: absolute;
+  top: 1px;
+  left: 20mm;
+  font-size: 7pt;
+  padding: 0 0 0 2mm;
+}
+.recipient-bank--iban--list {
+  list-style: none;
+  font-size: 7pt;
+  padding: 1mm 0 0 0;
+  display: table;
+}
+.recipient-bank--iban--list li {
+  display: table-row;
+}
+.recipient-bank--iban--list--bank {
+  padding-left: 2mm;
+  display: table-cell;
+}
+.recipient-bank--iban--list--number {
+  padding: 0 2mm;
+  text-align: right;
+  display: table-cell;
+}
+.recipient-bank--bic {
+  position: absolute;
+  top: 0;
+  left: 111.4mm;
+  width: 91.4mm;
+  height: 16.93mm;
+  border-bottom: 2px solid #000000;
+}
+.recipient-bank--bic--label {
+  position: absolute;
+  top: 1px;
+  left: 111.4mm;
+  font-size: 7pt;
+  padding: 0 0 0 2mm;
+}
+.recipient-bank--bic--list {
+  list-style: none;
+  font-size: 7pt;
+  padding: 1mm 0 0 0;
+}
+.recipient-bank--bic--list li {
+  padding-left: 2mm;
+}
+.recipient--label {
+  position: absolute;
+  top: 16.93mm;
+  left: 0;
+  width: 20mm;
+  height: 14.82mm;
+  border-right: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  padding: 1mm 1mm 0 0;
+  text-align: right;
+  font-size: 7pt;
+}
+.recipient--name {
+  position: absolute;
+  top: 16.93mm;
+  left: 20mm;
+  width: 91.4mm;
+  height: 14.82mm;
+  border-right: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  font-size: 9pt;
+  padding: 1mm;
+}
+.payer--personal {
+  position: absolute;
+  top: 31.75mm;
+  left: 20mm;
+  width: 91.4mm;
+  height: 33.86mm;
+  border-right: 2px solid #000000;
+  font-size: 9pt;
+  padding: 1mm;
+}
+.payer--personal--label {
+  position: absolute;
+  top: 31.75mm;
+  left: 0;
+  width: 20mm;
+  padding-top: 1mm;
+  padding-left: 4mm;
+  font-size: 7pt;
+  padding-right: 1mm;
+  text-align: right;
+  line-height: normal;
+}
+.payer--personal--label span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+.payer--signature {
+  position: absolute;
+  top: 61.38mm;
+  left: 20mm;
+  width: 90.4mm;
+  padding-left: 1mm;
+  border-top: 2px solid #808080;
+}
+.payer--signature--label {
+  position: absolute;
+  top: 58.78mm;
+  left: 0;
+  width: 20mm;
+  padding-left: 3mm;
+  font-size: 7pt;
+  padding-right: 1mm;
+  text-align: right;
+  line-height: normal;
+}
+.payer--signature--label span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+.payer--from-account {
+  position: absolute;
+  top: 65.61mm;
+  left: 20mm;
+  width: 91.4mm;
+  height: 8.47mm;
+  border-top: 2px solid #000000;
+  border-right: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  font-size: 9pt;
+  padding-left: 1mm;
+  line-height: 8.47mm;
+}
+.payer--from-account--label {
+  position: absolute;
+  top: 65.61mm;
+  left: 0;
+  width: 20mm;
+  padding-top: 1mm;
+  padding-left: 4mm;
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  border-right: 1px solid #000000;
+  height: 8.47mm;
+  font-size: 7pt;
+  text-align: right;
+}
+.payment--info {
+  position: absolute;
+  left: 111.4mm;
+  top: 16.93mm;
+  height: 40.7mm;
+  width: 91.4mm;
+  border-bottom: 2px solid #000000;
+  font-size: 9pt;
+  padding: 1mm;
+}
+.payment--reference {
+  position: absolute;
+  left: 128.4mm;
+  top: 57.63mm;
+  width: 74.4mm;
+  height: 8.47mm;
+  border-bottom: 2px solid #000000;
+  font-size: 9pt;
+  padding-left: 1mm;
+  line-height: 8.47mm;
+}
+.payment--reference--label {
+  position: absolute;
+  left: 111.4mm;
+  top: 57.63mm;
+  width: 17mm;
+  height: 8.47mm;
+  border-bottom: 2px solid #000000;
+  border-right: 2px solid #000000;
+  font-size: 7pt;
+  padding: 1mm;
+}
+.payment--due {
+  position: absolute;
+  left: 128.4mm;
+  top: 66.1mm;
+  width: 30mm;
+  height: 8.05mm;
+  border-bottom: 2px solid #000000;
+  border-right: 2px solid #000000;
+  font-size: 9pt;
+  padding-left: 1mm;
+  line-height: 8.47mm;
+}
+.payment--due--label {
+  position: absolute;
+  left: 111.4mm;
+  top: 66.1mm;
+  width: 17mm;
+  height: 8.05mm;
+  border-bottom: 2px solid #000000;
+  border-right: 2px solid #000000;
+  font-size: 7pt;
+  padding: 1mm;
+}
+.payment--amount {
+  position: absolute;
+  top: 66.1mm;
+  left: 158.4mm;
+  width: 44.4mm;
+  height: 8.05mm;
+  border-bottom: 2px solid #000000;
+  font-size: 9pt;
+  padding-left: 1mm;
+  padding-right: 3mm;
+  line-height: 8.47mm;
+  text-align: right;
+}
+.payment--amount--label {
+  position: absolute;
+  top: 66.1mm;
+  left: 158.4mm;
+  font-size: 7pt;
+  padding: 0 0 0 2mm;
+  padding-left: 1mm;
+}

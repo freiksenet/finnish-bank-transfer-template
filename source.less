@@ -1,0 +1,336 @@
+@font: 'Arial', 'Helvetica', 'sans-serif';
+
+@invoice-height: 101.6mm;
+@invoice-width: 210mm;
+
+@font-size-printed: 9pt;
+@font-size-label: 8pt;
+@font-size-help: 7pt;
+@font-size-help-small: 6pt;
+
+@line-thick: 2px; //0.5mm;
+@line-thin: 1px; //0.13mm;
+
+@border-thick: @line-thick solid black;
+@border-thin: @line-thin solid black;
+@border-tear-line: @line-thin dashed black;
+
+@smallest-column: 17mm;
+@small-column: 20mm;
+@due-column: 30mm;
+@large-column: 91.4mm;
+@price-column: (@large-column - @due-column - @smallest-column);
+
+@row1: 16.93mm;
+@row2: 14.82mm;
+@row3: 29.63mm;
+@row4: 4.23mm;
+@row5: 8.47mm;
+@row6: 27.52mm;
+@row-right: 40.7mm;
+
+@padding: 1mm;
+
+* {
+  box-sizing: border-box;
+  font-family: @font;
+}
+
+.invoice {
+  position: relative;
+  width: @small-column + (@large-column * 2);
+  height: @invoice-height;
+  border-top: @border-tear-line;
+}
+
+.left-label(@height) {
+  font-size: @font-size-help;
+  padding-right: @padding;
+  text-align: right;
+  line-height: @height;
+  span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+  }
+}
+
+.micro-label(@top, @left) {
+  position: absolute;
+  top: @top;
+  left: @left;
+  font-size: @font-size-help;
+  padding: 0 0 0 @padding * 2;
+}
+
+.invoice--label {
+  position: absolute;
+  top: @row1 + @row2 + @row3 + @row4;
+  left: 1mm;
+  width: @row3 + @row4;
+  font-size: @font-size-label;
+  text-align: center;
+
+  text-transform: uppercase;
+  font-weight: bold;
+
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+
+  -webkit-transform-origin: left top 0;
+  -moz-transform-origin: left top 0;
+  -ms-transform-origin: left top 0;
+  -o-transform-origin: left top 0;
+  transform-origin: left top 0;
+}
+
+.invoice--terms {
+  position: absolute;
+  top: @row1 + @row2 + @row3 + @row4 + @row5;
+  left: @invoice-width - 65mm;
+  font-size: @font-size-help-small;
+  width: 54mm;
+  padding-top: 3mm;
+}
+
+.recipient-bank {
+  &--label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: @small-column;
+    height: @row1;
+    border-bottom: @border-thick;
+    border-right: @border-thick;
+
+    .left-label(@row1);
+  }
+  &--iban {
+    position: absolute;
+    top: 0;
+    left: @small-column;
+    width: @large-column;
+    height: @row1;
+    border-bottom: @border-thick;
+    border-right: @border-thick;
+    &--label {
+      .micro-label(1px, @small-column);
+    }
+    &--list {
+      list-style: none;
+      font-size: @font-size-help;
+      padding: 1mm 0 0 0;
+      display: table;
+      li {
+        display: table-row;
+      }
+      &--bank {
+        padding-left: @padding * 2;
+        display: table-cell;
+      }
+      &--number {
+        padding: 0 @padding * 2;
+        text-align: right;
+        display: table-cell;
+      }
+    }
+  }
+  &--bic {
+    position: absolute;
+    top: 0;
+    left: @small-column + @large-column;
+    width: @large-column;
+    height: @row1;
+    border-bottom: @border-thick;
+    &--label {
+      .micro-label(1px, @small-column + @large-column);
+    }
+    &--list {
+      list-style: none;
+      font-size: @font-size-help;
+      padding: 1mm 0 0 0;
+      li {
+        padding-left: @padding * 2;
+      }
+    }
+  }
+}
+
+.recipient {
+  &--label {
+    position: absolute;
+    top: @row1;
+    left: 0;
+    width: @small-column;
+    height: @row2;
+    border-right: @border-thick;
+    border-bottom: @border-thick;
+
+    padding: @padding @padding 0 0;
+    text-align: right;
+    font-size: @font-size-help;
+  }
+  &--name {
+    position: absolute;
+    top: @row1;
+    left: @small-column;
+    width: @large-column;
+    height: @row2;
+    border-right: @border-thick;
+    border-bottom: @border-thick;
+    font-size: @font-size-printed;
+    padding: @padding;
+  }
+}
+
+.payer {
+  &--personal {
+    &--label {
+      position: absolute;
+      top: @row1 + @row2;
+      left: 0;
+      width: @small-column;
+      padding-top: @padding;
+      padding-left: 4mm;
+
+      .left-label(normal);
+    }
+    position: absolute;
+    top: @row1 + @row2;
+    left: @small-column;
+    width: @large-column;
+    height: @row3 + @row4;
+    border-right: @border-thick;
+
+    font-size: @font-size-printed;
+    padding: @padding;
+  }
+  &--signature {
+    &--label {
+      position: absolute;
+      top: @row1 + @row2 + @row3 - 2.6mm;
+      left: 0;
+      width: @small-column;
+      padding-left: 3mm;
+
+      .left-label(normal);
+    }
+    position: absolute;
+    top: @row1 + @row2 + @row3;
+    left: @small-column;
+    width: @large-column - @padding;
+    padding-left: @padding;
+    border-top: @line-thick solid gray;
+  }
+  &--from-account {
+    &--label {
+      position: absolute;
+      top: @row1 + @row2 + @row3 + @row4;
+      left: 0;
+      width: @small-column;
+      padding-top: @padding;
+      padding-left: 4mm;
+      border-top: @border-thick;
+      border-bottom: @border-thick;
+      border-right: @border-thin;
+      height: @row5;
+      font-size: @font-size-help;
+      text-align: right;
+    }
+    position: absolute;
+    top: @row1 + @row2 + @row3 + @row4;
+    left: @small-column;
+    width: @large-column;
+    height: @row5;
+    border-top: @border-thick;
+    border-right: @border-thick;
+    border-bottom: @border-thick;
+
+    font-size: @font-size-printed;
+    padding-left: @padding;
+    line-height: @row5;
+  }
+}
+
+.payment {
+  &--info {
+    position: absolute;
+    left: @small-column + @large-column;
+    top: @row1;
+    height: @row-right;
+    width: @large-column;
+
+    border-bottom: @border-thick;
+
+    font-size: @font-size-printed;
+    padding: @padding;
+  }
+  &--reference {
+    &--label {
+      position: absolute;
+      left: @small-column + @large-column;
+      top: @row1 + @row-right;
+      width: @smallest-column;
+      height: @row5;
+      border-bottom: @border-thick;
+      border-right: @border-thick;
+      font-size: @font-size-help;
+      padding: @padding;
+    }
+    position: absolute;
+    left: @small-column + @large-column + @smallest-column;
+    top: @row1 + @row-right;
+    width: @large-column - @smallest-column;
+    height: @row5;
+    border-bottom: @border-thick;
+
+    font-size: @font-size-printed;
+    padding-left: @padding;
+    line-height: @row5;
+  }
+  &--due {
+    &--label {
+      position: absolute;
+      left: @small-column + @large-column;
+      top: @row1 + @row-right + @row5;
+      width: @smallest-column;
+      height: 8.05mm;
+      border-bottom: @border-thick;
+      border-right: @border-thick;
+      font-size: @font-size-help;
+      padding: @padding;
+    }
+    position: absolute;
+    left: @small-column + @large-column + @smallest-column;
+    top: @row1 + @row-right + @row5;
+    width: @due-column;
+    height: 8.05mm;
+    border-bottom: @border-thick;
+    border-right: @border-thick;
+
+    font-size: @font-size-printed;
+    padding-left: @padding;
+    line-height: @row5;
+  }
+  &--amount {
+    &--label {
+      .micro-label(@row1 + @row-right + @row5, @small-column + @large-column + @smallest-column + @due-column);
+      padding-left: @padding;
+    }
+    position: absolute;
+    top: @row1 + @row-right + @row5;
+    left: @small-column + @large-column + @smallest-column + @due-column;
+    width: @price-column;
+    height: 8.05mm;
+    border-bottom: @border-thick;
+
+    font-size: @font-size-printed;
+    padding-left: @padding;
+    padding-right: @padding * 3;
+    line-height: @row5;
+    text-align: right;
+  }
+}
